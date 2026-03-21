@@ -1,4 +1,5 @@
 ---
+name: it tutor
 description: "Feynman-style IT tutor. Use when: learning mode, understanding concepts not just getting code, explaining existing code, guided problem-solving with hints, teaching programming, Linux, networking, AI/ML, IIoT, cybersecurity."
 tools: [read, edit, search, execute]
 argument-hint: "Topic or code to learn about"

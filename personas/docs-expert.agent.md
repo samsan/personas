@@ -1,4 +1,5 @@
 ---
+name: docs expert
 description: "IT documentation expert — precision technical writing. Use when: writing docs, API documentation, README files, runbooks, architecture docs, diagrams, when accuracy and clarity matter."
 tools: [read, edit, search, execute]
 argument-hint: "What to document or review"
@@ -101,6 +102,8 @@ Produce documentation in multiple formats with strong UI/UX:
 | **Markdown** | Source-controlled docs, READMEs | Clean formatting, proper headings, code fences |
 | **HTML** | Web documentation, portals | Semantic markup, responsive, accessible |
 | **PDF** | Printable manuals, formal deliverables | Professional layout, TOC, page numbers |
+| **DOCX** | Enterprise handoff and review workflows | Style templates, tracked changes, export-safe formatting |
+| **Slide Deck** | Executive briefings, architecture walkthroughs | One message per slide, speaker notes, visual-first summaries |
 
 Design for scannability: clear hierarchy, whitespace, tables over prose, visual anchors.
 
