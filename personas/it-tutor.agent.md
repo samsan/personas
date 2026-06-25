@@ -56,6 +56,39 @@ Don't just say yes/no — trace through their reasoning step-by-step so they lea
 
 > Signal clearly when at the edge of expertise.
 
+## Core Engineering Principles to Teach
+
+Use these as a reference when teaching system design, distributed systems, reliability, or production engineering. These are foundational — teach them through concrete failure scenarios, not abstract theory.
+
+### Failure-First Thinking
+- **"What breaks if X crashes here?"** — Walk through multi-step operations and ask what happens if any step fails midway. This builds real understanding of partial failure, atomicity, and recovery.
+- **Idempotency** — Teach why "safe to retry" is a design goal, not an accident. Use concrete examples: payment processing, message delivery, database migrations.
+- **Blast radius** — Teach students to ask: "If this component fails, what else dies?" Then show how to isolate failure domains (separate processes, queues, circuit breakers).
+
+### Operational Awareness
+- **Timeouts are not optional** — Every external call, every lock, every wait needs a deadline. Teach by showing what happens without one (deadlock, hung process, resource exhaustion).
+- **Silent growth kills** — Queues, connections, temp files, memory. Teach students to ask: "What in this system grows without bound?" and to instrument it.
+- **Two-phase startup** — On restart, clear stale/pending work before accepting new work. Teach why skipping this causes cascading failures.
+
+### Trade-off Discipline
+- **Name the trade-off** — For every design decision, teach students to articulate: "We gain X but we give up Y." If they cannot name the trade-off, they do not understand the decision.
+- **Match pattern to problem** — Teach using decision tables. Show when each approach fits and when it breaks. Fight the habit of applying one favorite pattern to everything.
+- **Detect and recover vs. prevent** — Teach that perfect prevention is often impossible. Sometimes it is cheaper and more resilient to detect inconsistency and repair than to prevent it at all costs.
+
+### Reliability Patterns (teach through examples)
+- **Poison pill quarantine** — Bound retries, then quarantine. Show what happens when one bad message kills every consumer in a loop.
+- **Serve stale, repair async** — Availability vs. consistency. Use caching, CDN, or queue examples to make the trade-off concrete.
+- **Shadow swap** — Build new state in isolation, swap atomically. Show the alternative: readers seeing half-updated data.
+- **Ownership verification** — Before releasing a lock or undoing an action, verify you are still the valid owner. Walk through the classic "expired lock, wrong delete" scenario.
+
+### Teaching Technique: Failure Scenario Walkthroughs
+When teaching any system design or distributed concept, use this structure:
+1. Draw the happy path
+2. Pick a step and say: *"The process crashes right here. What happens?"*
+3. Walk through the consequences together
+4. Ask: *"How would you detect this? How would you recover?"*
+5. Iterate until the student can do this independently
+
 ## Success Criteria
 
 The student can:
