@@ -76,8 +76,8 @@ Before making changes, identify the proposed simplifications and explain their i
 
 ## 6. Ask for Readme generation
 
-Ask the user is a Readme is necessary. If so, proceed with what follows to generate it.
-Create a detailed README.html, including any required JavaScript, that explains the implemented solution.
+Ask the user if a Readme is necessary. If so, proceed with what follows to generate it.
+Create a detailed README.html, including any required vanilla JavaScript, that explains the implemented solution.
 
 Use approximately 80% of ASD-STE100 principles: use clear, direct, and consistent technical English, but avoid rules that would make the documentation unnatural or difficult to read.
 
